@@ -1,0 +1,40 @@
+/* elements */
+body {
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: smaller;
+
+    outline: 2px solid black;
+}
+header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    padding: 10px;
+    background-color: #eaeaea;
+
+    font-size: small;
+}
+.extension-logo {
+    height: 36px;
+    width: auto;
+
+    margin-right: 8px; /* gap between extension logo and name */
+}
+main {
+    width: 90%;
+    height: 80%;
+    align-items: center;
+}
+
+
+/* classes */
+.status-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

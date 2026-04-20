@@ -5,15 +5,15 @@
     "version": "0.1.0",
     "description": "An extension to prevent malvertising on the web.",
     "icons": {
-        "48": "images/icon-48.png",
-        "128": "images/icon-128.png"
+        "48": "./icons/icon-48.png",
+        "128": "./icons/icon-128.png"
     },
     "action": {
         "default_title": "Open Extension Menu",
-        "default_popup": "action_menu.html"
+        "default_popup": "./popup/action_menu.html"
     },
     "background": {
-        "service_worker": "service-worker.js"
+        "service_worker": "./scripts/service-worker.js"
     },
     "commands": {
         "enable": {
