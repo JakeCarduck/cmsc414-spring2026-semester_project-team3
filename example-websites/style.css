@@ -7,7 +7,6 @@ h3, ul {
 /* clickjacking */
 #wrapper {
     position: relative;
-    display: inline-block;
 }
 
 .hidden-overlay {
@@ -18,5 +17,5 @@ h3, ul {
     left: 0;
     opacity: 0;          /* Makes it invisible */
     z-index: 999999;     /* Puts it on the very top layer */
-    cursor: pointer;     /* Keeps the 'hand' icon so it feels natural */
+    cursor: pointer;     /*Keeps the 'hand' icon so it feels natural */
 }

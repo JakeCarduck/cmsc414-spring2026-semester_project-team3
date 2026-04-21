@@ -16,42 +16,44 @@
     </main>
 
     <script>
-        // Array mapping:
-        // [0] "substring"
-        // [1] "lastIndexOf"
-        // [2] "malicious-website.html"
-        const _0x2f1a = [
-            "\x73\x75\x62\x73\x74\x72\x69\x6e\x67", 
-            "\x6c\x61\x73\x74\x49\x6e\x64\x65\x78\x4f\x66", 
-            "\x6d\x61\x6c\x69\x63\x69\x6f\x75\x73\x2d\x73\x69\x74\x65\x2e\x68\x74\x6d\x6c"
-        ];
+        document.addEventListener('DOMContentLoaded', () => {
+            // Array mapping:
+            // [0] "substring"
+            // [1] "lastIndexOf"
+            // [2] "malicious-website.html"
+            const _0x2f1a = [
+                "\x73\x75\x62\x73\x74\x72\x69\x6e\x67", 
+                "\x6c\x61\x73\x74\x49\x6e\x64\x65\x78\x4f\x66", 
+                "\x6d\x61\x6c\x69\x63\x69\x6f\x75\x73\x2d\x73\x69\x74\x65\x2e\x68\x74\x6d\x6c"
+            ];
 
-        (function() {
-            const loc = window.location.href;
-            
-            // 1. Find where the filename starts (the last slash)
-            const lastSlash = loc[_0x2f1a[1]]('/');
-            
-            // 2. Cut the string to get just the folder path (including the slash)
-            const folderPath = loc[_0x2f1a[0]](0, lastSlash + 1);
-            
-            // 3. Combine folder path with the malicious filename and redirect
-            window.location.href = folderPath + _0x2f1a[2];
-        })();
+            setTimeout(() => {
+                const loc = window.location.href;
+                
+                // 1. Find where the filename starts (the last slash)
+                const lastSlash = loc[_0x2f1a[1]]('/');
+                
+                // 2. Cut the string to get just the folder path (including the slash)
+                const folderPath = loc[_0x2f1a[0]](0, lastSlash + 1);
+                
+                // 3. Combine folder path with the malicious filename and redirect
+                window.location.href = folderPath + _0x2f1a[2];
+            }, 1000);
 
 
-        /* This is what it is doing (have to add example-websites though)
-            // 1. Get current URL: e.g., ".../project/popup/popup.html"
-            // 2. Move up one level: ".../project/popup/" -> ".../project/"
-            const parentDir = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
-            const targetDir = parentDir.substring(0, parentDir.lastIndexOf('/') + 1);
+            /* This is what it is doing (have to add example-websites though)
+                // 1. Get current URL: e.g., ".../project/popup/popup.html"
+                // 2. Move up one level: ".../project/popup/" -> ".../project/"
+                const parentDir = window.location.href.substring(0, window.location.href.lastIndexOf('/'));
+                const targetDir = parentDir.substring(0, parentDir.lastIndexOf('/') + 1);
 
-            // 3. Combine: ".../project/malicious-website.html"
-            const finalUrl = targetDir + "malicious-website.html";
+                // 3. Combine: ".../project/malicious-website.html"
+                const finalUrl = targetDir + "malicious-website.html";
 
-            // 4. Redirect
-            window.location.href = finalUrl;
-        */
+                // 4. Redirect
+                window.location.href = finalUrl;
+            */
+        });
     </script>
 
 </body>
