@@ -1,0 +1,32 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Innocent Website (Clickjacking)</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <main>
+        <h3>Cats Are Great!</h3>
+
+        <p>Click me to view more cat photos.</p>
+
+        <div id="wrapper">
+            <img id="legit-ad-container" src="../icons/extension-logo.jpg">
+        </div>
+    </main>
+
+    <script>
+        // Example of a script injecting a hidden 'Like' button or Malicious Link
+        const overlay = document.createElement('div');
+        overlay.className = 'hidden-overlay';
+        overlay.innerHTML = `<iframe src="malicious-clickjack-website.html" style="width: 100%; height: 100%; border: none;"></iframe>`;
+
+        // Attach it to a legitimate container (like a video player)
+        const adWrapper = document.querySelector('#wrapper');
+        adWrapper.appendChild(overlay);
+    </script>
+
+</body>
+</html>

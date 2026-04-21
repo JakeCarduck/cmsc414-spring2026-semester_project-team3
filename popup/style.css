@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+}
+
+/* elements */
+body {
+    width: 300px;
+    height: 400px;
+    padding: 10px;
+    margin: 0;
+
+    background-color: #c4c4c4;
+
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: smaller;
+
+    outline: 2px solid black;
+}
+header h1 {
+    margin: 0;
+}
+header {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+
+    padding-top: 2px;
+    padding-bottom: 5px;
+
+    font-size: small;
+}
+.extension-logo {
+    height: 36px;
+    width: auto;
+
+    margin-right: 8px; /* gap between extension logo and name */
+}
+main {
+    width: 280px;
+    height: 280px;
+    padding: 10px;
+
+    background-color: #fff;
+}
+
+
+/* elements */
+.status-toggle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}

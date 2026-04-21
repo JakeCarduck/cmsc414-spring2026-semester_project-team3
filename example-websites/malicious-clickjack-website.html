@@ -1,0 +1,19 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malicious Website (Clickjacking)</title>
+</head>
+
+<body style="margin:0;">
+    <button id="trap" style="width: 100vw; height: 100vh; opacity: 0.5; cursor: pointer;">
+        Invisible Trap
+    </button>
+
+    <script>
+        document.getElementById('trap').addEventListener('click', () => {
+            alert('CLICKJACKED! The hidden button was pressed.');
+        });
+    </script>
+</body>
+</html>
