@@ -12,11 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     statusToggleElement.addEventListener('change', () => {
         const isEnabled = statusToggleElement.checked;
         
-        chrome.storage.local.set({ extensionEnabled: isEnabled }, () => {
-            updateToggleUI(isEnabled);
-            // for testing
-            console.log('Setting saved');
-        });
+        browser.runtime.sendMessage({ action: "toggle", enabled: isEnabled });
+
+        // Save the state to local storage
+        chrome.storage.local.set({ extensionEnabled: isEnabled });
     });
 
 

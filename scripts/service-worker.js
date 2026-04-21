@@ -6,6 +6,13 @@ browser.runtime.onInstalled.addListener(function installed() {
     addContextMenus();
     setupInjectionScript();
     getAdWebsites();
+
+    browser.storage.local.get("extensionEnabled", (result) => {
+        currentToggleState = result.extensionEnabled;
+        if (currentToggleState) {
+            toggleInjection(true);
+        }
+    });
 });
 
 // Handle messages sent to the background service worker.

