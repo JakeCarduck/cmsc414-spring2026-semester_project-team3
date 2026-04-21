@@ -5,28 +5,26 @@
     "version": "0.1.0",
     "description": "An extension to prevent malvertising on the web.",
     "icons": {
-        "48": "./icons/icon-48.png",
-        "128": "./icons/icon-128.png"
+        "48": "icons/icon-48.png",
+        "128": "icons/icon-128.png"
     },
     "action": {
         "default_title": "Open Extension Menu",
-        "default_popup": "./popup/action_menu.html"
+        "default_popup": "popup/action-menu.html"
     },
     "background": {
-        "service_worker": "./scripts/service-worker.js"
-    },
-    "commands": {
-        "enable": {
-            "description": "Enable the malvertising prevention feature. (TODO)"
-        }
+        "service_worker": "scripts/service-worker.js"
     },
     "permissions": [
-        "activeTab",
-        "commands",
         "contextMenus",
         "scripting",
         "storage"
     ],
-    "host_permissions": ["<all_urls>"]
+    "host_permissions": ["<all_urls>"],
+    "web_accessible_resources": [{
+        "resources": ["data/ad_websites.txt"],
+        "matches": ["<all_urls>"]
+    }]
+
     
 }
