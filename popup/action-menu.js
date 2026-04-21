@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Save the state to local storage
         chrome.storage.local.set({ extensionEnabled: isEnabled });
+        updateToggleUI(isEnabled);
     });
 
 
