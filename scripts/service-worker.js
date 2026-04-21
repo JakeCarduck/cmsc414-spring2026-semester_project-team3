@@ -19,6 +19,9 @@ browser.runtime.onMessage.addListener(function handleMessage(request, sender, se
             const isAdURL = compareURLAgainstList(request.url);
             sendResponse({ isAdURL: isAdURL });
             break;
+        case "blockerScriptLoaded":
+            console.log("Blocker script loaded on page: " + request.url);
+            break;
         default:
             console.warn("Received unknown message: " + request.action + " with payload: " + JSON.stringify(request));
     }
