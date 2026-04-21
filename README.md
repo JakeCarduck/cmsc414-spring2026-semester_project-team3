@@ -2,7 +2,7 @@
 
 **Files & Directories**
 * content
-  * content.js - contains the script that is injected directly into the webpage the user is visiting; it is the only script that can see the page's HTML.
+  * blocker.js - contains the script that is injected directly into the webpage the user is visiting; it is the only script that can see the page's HTML.
 * example-websites - examples of websites with ads using clickjacking and obfuscated urls.
 * icons
 * popup
