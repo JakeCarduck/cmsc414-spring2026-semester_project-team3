@@ -24,5 +24,21 @@ function findAdsInFrames() {
 
 window.addEventListener("load", () => {
     findAdsInFrames();
-    console.log("Finished checking iframes for ads.");
 });
+
+// navigation.addEventListener("navigate", (event) => {
+//     if (!event.userInitiated) {
+//         event.preventDefault();
+//         console.log("Blocked non-user-initiated navigation to: " + event.destination.url + "\n" + JSON.stringify(event));
+//     }
+// });
+
+window.addEventListener("beforeunload", (event) => {
+    if (!navigator.userActivation.isActive) {
+        event.preventDefault();
+        console.log("Blocked non-user-initiated unload event: " + JSON.stringify(event));
+    }
+});
+
+console.log("Blocker script loaded and running.");
+browser.runtime.sendMessage({ action: "blockerScriptLoaded", url: window.location.href });
